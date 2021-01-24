@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.demo.warehouse.repository.ProductRepository;
 
+import java.util.NoSuchElementException;
+
 @Service
 public class ProductService {
 
@@ -48,16 +50,10 @@ public class ProductService {
                 .build();
         return dtoProduct;
     }
-    private boolean idExists(Long id) {
-        return productRepository.existsById(id);
-    }
 
-    public ResponseEntity getProductById(Long id) {
-        if (idExists(id)) {
-            DTOProduct product = productToDTOProduct(productRepository.findById(id).get());
-            return new ResponseEntity<>(product, HttpStatus.ACCEPTED);
-        }
-        return ResponseEntity.notFound().build();
+    public Product getProductById(Long productId) {
+        return productRepository.findById(productId)
+                .orElseThrow(() -> new NoSuchElementException());
     }
 
     public Iterable<Product> getAllProducts() {

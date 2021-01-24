@@ -17,6 +17,7 @@ import javax.transaction.Transactional;
 @RequestMapping(path = "/api")
 public class ProductController {
     private final ProductService  productService;
+    private Long productId;
 
     @Autowired
     public ProductController(ProductService productService) {
@@ -33,7 +34,7 @@ public class ProductController {
     }
 
     @GetMapping("/products/{id}")
-        public ResponseEntity getEntryById(Long id) {
+        public Product getProductById(@PathVariable("id") Long id) {
         return productService.getProductById(id);
     }
 }
