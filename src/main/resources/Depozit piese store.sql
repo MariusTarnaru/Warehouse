@@ -1,9 +1,11 @@
- create database warehouse;
+  create database warehouse;
  
- -- drop table storage.product;
+  -- drop table warehouse.product;
 
 CREATE TABLE warehouse.product (
     product_id INT(11) NOT NULL AUTO_INCREMENT,
+    store_cod VARCHAR(4) NOT NULL,
+    store_name VARCHAR(12) NOT NULL,
     product_cod VARCHAR(50) NULL,
     category_name VARCHAR(50) NOT NULL,
     product_name VARCHAR(100) NOT NULL,

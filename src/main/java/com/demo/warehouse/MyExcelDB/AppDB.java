@@ -11,7 +11,7 @@ public class AppDB {
 
     public static void main(String[] args) {
 
-        String csvFile = "D:\\JAVA\\MAGAZIE\\BACKEND\\warehouse\\src\\main\\resources\\MagazieDB2019.csv";
+        String csvFile = "D:\\JAVA\\MAGAZIE\\BACKEND\\src\\main\\resources\\MagazieDB2019.csv";
         // D:\JAVA\MAGAZIE\BACKEND\warehouse\src\main\resources
         BufferedReader br;
         String line;
@@ -36,7 +36,7 @@ public class AppDB {
                 Connection connection = ServiceDB.getConnection();
 
                 String sql1 = "INSERT IGNORE INTO warehouse.product (`product_cod`, `category_name`, `product_name`, " +
-                        "`quantity`,`UM`) VALUES (?, ?, ?, ?, ?);";
+                        "`quantity`,`UM`,`store_cod`, `store_name`) VALUES (?, ?, ?, ?, ?, ?, ?);";
 
                 PreparedStatement preparedStatement = connection.prepareStatement(sql1);
                 preparedStatement.setString(1, codProdus);
@@ -44,11 +44,13 @@ public class AppDB {
                 preparedStatement.setString(3, denumireProdus);
                 preparedStatement.setDouble(4,  cantitate);
                 preparedStatement.setString(5, unitateDeMasura);
+                preparedStatement.setString(6, codMagazie);
+                preparedStatement.setString(7, numeCodMagazie);
                 // preparedStatement.setString(6, notes);
                 preparedStatement.executeUpdate();
                 preparedStatement.closeOnCompletion();
 
-                String sql2 = "INSERT  IGNORE INTO warehouse.store (`store_cod`,`store_name`) VALUES (?, ?);";
+               /* String sql2 = "INSERT  IGNORE INTO warehouse.store (`store_cod`,`store_name`) VALUES (?, ?);";
                 PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
                 preparedStatement2.setString(1, codMagazie);
                 preparedStatement2.setString(2, numeCodMagazie);
@@ -57,7 +59,7 @@ public class AppDB {
                 String sql3 = "INSERT  IGNORE INTO warehouse.category (`category_name`) VALUES (?);";
                 PreparedStatement preparedStatement3 = connection.prepareStatement(sql3);
                 preparedStatement3.setString(1, categorie);
-                preparedStatement3.executeUpdate();
+                preparedStatement3.executeUpdate();*/
 
             }
         } catch (SQLException | IOException e) {

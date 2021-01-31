@@ -21,6 +21,12 @@ public class Product {
     @Column(name = "product_id")
     private long productId;
 
+    @Column(name = "store_cod")
+    private String codWarehouse;
+
+    @Column(name = "store_name")
+    private String nameWarehouse;
+
     @Column(name = "product_cod")
     private String productCod;
 
@@ -38,4 +44,5 @@ public class Product {
 
     @Column
     private String notes;
+
 }
