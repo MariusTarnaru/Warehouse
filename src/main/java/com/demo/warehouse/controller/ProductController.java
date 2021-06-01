@@ -11,7 +11,7 @@ import com.demo.warehouse.service.ProductService;
 
 import javax.transaction.Transactional;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @Transactional @Validated
 @RestController
 @RequestMapping(path = "/api")
@@ -34,7 +34,7 @@ public class ProductController {
     }
 
     @GetMapping("/products/{id}")
-        public Product getProductById(@PathVariable("id") Long id) {
-        return productService.getProductById(id);
+        public Product getProductById(@PathVariable("id") Long productId) {
+        return productService.getProductById(productId);
     }
 }
