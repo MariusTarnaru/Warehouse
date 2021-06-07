@@ -11,7 +11,7 @@ import com.demo.warehouse.service.ProductService;
 
 import javax.transaction.Transactional;
 
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://warehouse-angular.s3-website.eu-central-1.amazonaws.com/")
 @Transactional @Validated
 @RestController
 @RequestMapping(path = "/api")
