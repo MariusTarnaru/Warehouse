@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class ServiceDB {
 
-    private static final String url = "jdbc:mysql://localhost:3306/warehouse?serverTimezone=UTC";
+    private static final String url = "jdbc:mysql://warehouse.c08t4w8hsoyc.eu-central-1.rds.amazonaws.com:3306/warehouse?serverTimezone=UTC";
     private static final String user = "root";
-    private static final String password = "root";
+    private static final String password = "password";
     private static Connection myConnection = null;
 
     public static Connection getConnection(){

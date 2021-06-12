@@ -11,7 +11,7 @@ public class AppDB {
 
     public static void main(String[] args) {
 
-        String csvFile = "D:\\JAVA\\MAGAZIE\\BACKEND\\src\\main\\resources\\MagazieDB2019.csv";
+        String csvFile = "D:\\JAVA\\MAGAZIE\\BACKEND\\warehouse\\src\\main\\resources\\MagazieDB2019.csv";
         // D:\JAVA\MAGAZIE\BACKEND\warehouse\src\main\resources
         BufferedReader br;
         String line;
